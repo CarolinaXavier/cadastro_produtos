@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./assets/scss/fonts.scss";
+@import './assets/scss/bootstrap-theme.scss';
+@import "node_modules/bootstrap-icons";
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+.modal-content {
+    border: none;
+    border-radius: 1rem;
+    padding: .5rem;
+    box-shadow: var(--bs-box-shadow) !important;
+}

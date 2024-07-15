@@ -1,0 +1,11 @@
+<div>
+    <p class="fs-4 mb-2 text-medium" [ngClass]="data.tipo === 'sucesso' ? 'text-success': 'text-danger'">
+        <i class="bi me-2" [ngClass]="data.tipo === 'sucesso' ? 'bi-check-circle': 'bi-exclamation-circle'"></i>
+        {{data.titulo}}</p>
+    <p class="m-0">{{data.message}}</p>
+    <div class="d-flex justify-content-center pt-3">
+        <div class="p-2 rounded-5 bg-primary bg-opacity-10">
+            <app-card-mini [data]="data.data" />
+        </div>
+    </div>
+</div>

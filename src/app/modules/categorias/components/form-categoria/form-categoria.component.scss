@@ -1,0 +1,62 @@
+.pais-telefone-flag-bg {
+    background: var(--bg-image) top right no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 24px;
+}
+
+.ng-select.custom ::ng-deep .ng-select-container {
+    background: transparent;
+    border: none;
+    border-radius: 0.6rem;
+    height: 45.19px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.ng-select.custom ::ng-deep .ng-arrow-wrapper {
+    display: none;
+}
+
+.ng-select.custom ::ng-deep .ng-select-container .ng-value-container .ng-value {
+    display: flex;
+    flex-flow: row-reverse;
+    border-radius: 1rem;
+    align-items: center;
+    padding-left: .6rem;
+    padding-right: .6rem;
+    background-color: rgba(var(--bs-primary-rgb), .10);
+
+    & .ng-value-icon {
+        border: none;
+        font-size: 1.2rem;
+
+        &:hover {
+            background-color: transparent;
+        }
+    }
+}
+
+.ng-select.custom ::ng-deep .ng-dropdown-panel {
+    margin-top: .4rem;
+    background-color: var(--bs-body-bg);
+    border-radius: .6rem !important;
+}
+
+.ng-select.custom ::ng-deep .ng-dropdown-panel .ng-dropdown-panel-items .ng-option .ng-option-selected,
+.ng-select.custom ::ng-deep .ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    background-color: transparent;
+
+    & .ng-option-label {
+        font-weight: normal !important;
+    }
+
+    &:hover {
+        background-color: gray;
+        color: var(--bs-white);
+    }
+}

@@ -1,0 +1,76 @@
+$primary: #608ffe !default;
+$danger: #ec495b !default;
+$body-bg: #f5f9fa !default;
+
+$font-size-base: 1rem !default;
+
+$input-btn-padding-y: .6rem !default;
+$input-btn-padding-x: 2.6rem !default;
+
+$btn-border-radius: 0.6rem !default;
+$btn-border-radius-sm: 0.6rem !default;
+$btn-border-radius-lg: 0.6rem !default;
+
+$input-padding-y: .6rem !default;
+$input-padding-x: .8rem !default;
+$input-padding-y-sm: 0 !default;
+$input-padding-x-sm: 0 !default;
+$input-padding-y-lg: (
+    $font-size-base * 1.25) !default;
+$input-padding-x-lg: 0 !default;
+
+$input-border-radius: 0.6rem !default;
+$input-border-radius-lg: 0.6rem !default;
+$input-border-radius-sm: 0.6rem !default;
+
+$input-placeholder-color: rgba(var(--bs-body-color-rgb), 0.6) !default;
+$input-color: rgba(var(--bs-body-color-rgb), 0.6) !default;
+
+.btn.btn-primary {
+    color: var(--bs-white
+    );
+
+&:hover,
+&:active,
+&:focus {
+    color: var(--bs-white) !important;
+}
+}
+
+.btn.btn-outline-primary {
+    color: var(--bs-primary);
+    border-color: transparent !important;
+
+    &:hover,
+    &:active,
+    &:focus {
+        color: var(--bs-primary) !important;
+        border-color: var(--bs-primary) !important;
+        background-color: var(--bs-body) !important;
+    }
+}
+
+.btn.btn-danger {
+    color: var(--bs-white);
+
+    &:hover,
+    &:active,
+    &:focus {
+        color: var(--bs-white) !important;
+    }
+}
+
+.btn.btn-outline-danger {
+    color: var(--bs-danger);
+    border-color: transparent !important;
+
+    &:hover,
+    &:active,
+    &:focus {
+        color: var(--bs-danger) !important;
+        border-color: var(--bs-danger) !important;
+        background-color: var(--bs-body) !important;
+    }
+}
+
+@import "node_modules/bootstrap/scss/bootstrap";

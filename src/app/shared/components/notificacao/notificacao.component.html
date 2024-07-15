@@ -1,0 +1,21 @@
+<div class="col-10 col-sm-8 col-md-6 col-lg-4 col-xl-3 z-1 position-fixed pt-54 top-0 end-0 mh-100 overflow-y-auto"
+    *ngIf="notificacoes$ | async as notificacoes">
+    <div class="row px-0 py-1" role="alertdialog">
+        <div class="col-12" *ngFor="let notificacao of notificacoes; index as i; trackBy: trackById">
+            <div class="m-4">
+                <div class="d-flex justify-content-between align-items-center px-4 py-2 bg-white rounded-top-4"
+                    data-bs-theme="light">
+                    <span class="fs-small"><i class="bi bi-clock me-1"></i>{{notificacao.timestamp | date : 'short'
+                        }}</span>
+                    <button type="button" class="btn-close" aria-label="Close"
+                        (click)="remove(notificacao.timestamp)"></button>
+                </div>
+                <div class="bg-body rounded-bottom-4">
+                    <div class="d-block p-4 bg-white bg-opacity-25 rounded-bottom-4 shadow">
+                        <ng-container *ngComponentOutlet="notificacao.component; inputs: notificacao.inputs; " />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

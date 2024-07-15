@@ -1,0 +1,43 @@
+<nav class="d-flex">
+    <ul class="list-group p-0 list-group-flush list-group-horizontal ">
+
+        <li class="list-group-item p-0 border-0">
+            <button type="button" class="btn p-2 py-0 rounded-2 border-0 mx-1 fw-medium" [disabled]="prevPage"
+                [ngClass]="prevPage ? 'bg-transparent' : 'bg-white' "
+                (click)="navegarParaPagina(paginacao.paginaAtual - 1)">
+                <span class="sr-only">Anterior</span>
+            </button>
+        </li>
+
+        <ul class="list-group p-0 list-group-flush" *ngFor="let pagina of carousel">
+            <li class="list-group-item p-0 border-0">
+                <button type="button" class="btn p-2 py-0 rounded-2 border-0 mx-1 fw-medium" [ngClass]="
+            pagina === paginacao.paginaAtual ? 'btn-primary' : 'bg-white'
+          " (click)="navegarParaPagina(pagina)">
+                    {{ pagina }}
+                </button>
+            </li>
+        </ul>
+
+        <li *ngIf="paginacao.paginaAtual < paginacao.totalPaginas - 3" class="list-group-item p-0 border-0">
+            <button type="button" class="btn p-2 py-0 rounded-2 border-0 mx-1 fw-medium bg-white" [disabled]="true">
+                ...
+            </button>
+        </li>
+
+        <li *ngIf="paginacao.totalPaginas != paginacao.paginaAtual" class="list-group-item p-0 border-0">
+            <button type="button" class="btn p-2 py-0 rounded-2 border-0 mx-1 fw-medium bg-white"
+                (click)="navegarParaPagina(paginacao.totalPaginas)">
+                {{ paginacao.totalPaginas }}
+            </button>
+        </li>
+
+        <li class="list-group-item p-0 border-0">
+            <button type="button" class="btn p-2 py-0 rounded-2 border-0 mx-1 fw-medium" [disabled]="nextPage"
+                [ngClass]="nextPage ? 'bg-transparent' : 'bg-white' "
+                (click)="navegarParaPagina(paginacao.paginaAtual + 1)">
+                <span class="sr-only">Próxima</span>
+            </button>
+        </li>
+    </ul>
+</nav>

@@ -1,0 +1,88 @@
+<section class="container-fluid px-0 py-1 py-sm-2 py-md-3">
+    <div class="container-lg p-4" *ngIf="data$ | async as data">
+        <h1 class="fs-5 mb-5">Categorias</h1>
+        <div class="row">
+            <div class="col-lg-8">
+                <form [formGroup]="form">
+                    <div class="row flex-lg-nowrap">
+                        <div class="col-lg-6 mb-4 px-2">
+                            <div class="input-group">
+                                <input type="text" class="form-control bg-white border-end-0 text-body"
+                                    formControlName="nome" placeholder="Pesquise pelo nome" />
+                                <div class="input-group-text bg-white">
+                                    <i class="bi bi-search"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-4 text-end mb-4">
+                <button type="button" class="btn btn-primary" title="Adicionar" (click)="onAdd()">
+                    Nova Categoria
+                </button>
+            </div>
+            <div *ngIf="paginacao.totalDocumentos > 0; else nadaPorAqui">
+                <div class="col-12">
+                    <ul class="list-group rounded-3">
+                        <li class="list-group-item p-3 bg-white">
+                            <div class="row flex-column flex-lg-row">
+                                <div class="align-self-center col mb-1 mb-lg-0">
+                                    <span class="small fw-medium">Nome</span>
+                                </div>
+                                <div class="align-self-center col mb-0 mb-lg-0 col-lg-1">
+                                    <span class="small fw-medium">Ações</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item px-3 py-4 py-lg-2"
+                            *ngFor="let categoria of paginacao.documentos; even as even" [ngClass]="{ 'bg-white': even }">
+                            <div class="row flex-column flex-lg-row">
+                                <div class="align-self-center col mb-1 mb-lg-0">
+                                    <small class="text-body-tertiary">{{ categoria.nome }}</small>
+                                </div>
+                                <div class="align-self-center col mb-0 mb-lg-0 col-lg-1 text-end">
+                                    <button type="button" class="btn btn-link p-0 text-body-tertiary dropdown-toggles"
+                                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="bi bi-three-dots-vertical"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a class="dropdown-item" role="button" id="editar"
+                                                (click)="onEditar(categoria)">
+                                                <i class="bi bi-pencil me-2"></i>Editar</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" role="button" id="excluir"
+                                                (click)="onCheckProdutoInCategoria(categoria)">
+                                                <i class="bi bi-trash me-2"></i>Excluir</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <nav class="mt-3">
+                    <div
+                        class="gap-3 d-flex justify-content-center align-items-center flex-lg-row position-relative flex-column">
+                        <div>
+                            <app-nav-paginacao [paginacao]="paginacao" (navigate)="navegarParaPagina($event)" />
+                        </div>
+                        <div class="position-absolute position-absolute-select end-0">
+                            <select class="form-select bg-white fw-medium text-body ps-2 pe-4 me-1 py-1"
+                                title="itens por página" [formControl]="controleLimite">
+                                <option value="5">5 itens por página</option>
+                                <option value="10">10 itens por página</option>
+                                <option value="20">20 itens por página</option>
+                            </select>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <ng-template #nadaPorAqui>
+                <app-nada-por-aqui message="Sem resultados para sua pesquisa." />
+            </ng-template>
+        </div>
+    </div>
+</section>
